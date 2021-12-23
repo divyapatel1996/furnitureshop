@@ -1,0 +1,99 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+<!doctype html>
+<html class="no-js" lang="en">
+
+    <head>
+    </head>
+	
+	<body>
+		<center>
+			<form style="margin-top: 150px;" action="{% url 'signup' %}" method= "post">
+				{% csrf_token %}
+				<table>
+					<tr>
+						<td colspan="2" align="center">
+							{% if msg %}
+							<p style="color:red;">{{msg}}</p>
+							{% endif %}
+						</td>
+					</tr>
+					<tr>
+						<td> User Type</td>
+						<td>
+							<input type="radio" name="usertype" value="user"> &nbsp;User
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="usertype" value="seller"> &nbsp;Seller 
+						</td>
+					</tr>
+					<tr>
+						<td> First Name </td>
+						<td><input type="text" name="fname" ></td>
+					</tr>
+					<tr>
+						<td> Last Name </td>
+						<td><input type="text" name="lname" ></td>
+					</tr>
+					<tr>
+						<td> Email </td>
+						<td><input type="text" name="email" ></td>
+					</tr>
+					<tr>
+						<td> Mobile </td>
+						<td><input type="text" name="mobile" ></td>
+					</tr>
+					<tr>
+						<td> Password</td>
+						<td><input type="password" name="password" ></td>
+					</tr>
+					<tr>
+						<td> Confirm Password  </td>
+						<td><input type="password" name="cpassword" ></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center">
+							<input type="submit" value="Sign Up" class = "btn btn-primary">
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center">
+							Already Register ? <a href="{% url 'login' %}">Click Here </a> To Login
+						</td>
+					</tr>
+				</table>
+			</form>
+		</center>
+		
+		
+			
+        </footer><!--/.footer-->
+		<!--footer end-->
+		
+		<!-- Include all js compiled plugins (below), or include individual files as needed -->
+
+		<script src="{% static 'assets/js/jquery.js' %}"></script>
+        
+        <!--modernizr.min.js-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+		
+		<!--bootstrap.min.js-->
+        <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+		
+		<!-- bootsnav js -->
+		<script src="{% static 'assets/js/bootsnav.js' %}"></script>
+
+		<!--owl.carousel.js-->
+        <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+		
+        
+        <!--Custom JS-->
+        <script src="{% static 'assets/js/custom.js' %}"></script>
+        
+    </body>
+	
+</html>
+{% endblock %}
